@@ -1,6 +1,6 @@
 # Ethereum Tutorials
 
-?> By Sol - Solange Gueiros
+> By Sol - Solange Gueiros
 
 Learn how to be a Ethereum Blockchain Developer.
 
