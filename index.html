@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ethereum Tutorials</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Tutorials for Ethereum Blockchain developer by Solange Gueiros">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="icon" href="images/ethereum.png">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@latest/dist/css/theme-simple.css" title="light">
+  <link rel="stylesheet alternative" href="https://cdn.jsdelivr.net/npm/docsify-themeable@latest/dist/css/theme-simple-dark.css" title="dark">  
+
+</head>
+
+<body> 
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      /* GENERAL
+      -----------------------------------------------------------------*/      
+      name: 'Ethereum Tutorials',
+      /* nameLink: '/', 
+      nameLink for each route:
+      */ 
+      nameLink: {
+        '/en/': '/en/',
+        '/es/': '/es/',
+        '/pt/': '/pt/',
+        '/': '/',
+      },
+      repo: '',
+
+      /* NAVIGATION
+      -----------------------------------------------------------------*/
+      /* routerMode
+          after setting to history, # will not appear in the browser link 
+          history cause problems with links not found
+          default: 'hash'
+      */
+      //routerMode: 'history',
+
+      /* homepage
+      default: README.md */
+      homepage: 'index.md',      
+      
+      loadNavbar: true,
+      mergeNavbar: true,    // Navbar will be merged with the sidebar on smaller screens.
+      loadSidebar: true,
+      //autoHeader: true,
+      //relativePath: true, // If true, links are relative to the current context. Default false
+      subMaxLevel: 2,
+      auto2top: true,   // automatically jump to the top of the page after switching pages
+      
+      /* fallbackLanguages
+      List of languages that will fallback to the default language 
+      when a page is request and didn't exists for the given local. */
+      fallbackLanguages: ['es', 'pt'],
+
+      // Google Analytics
+      ga: 'G-SFJNKRYXJX',
+
+      /* THEMES - STYLES - CSS
+      -----------------------------------------------------------------*/
+      topMargin: 10,
+      //themeColor: '#00FF00',
+
+      /* Global search */
+      search: {
+        paths: 'auto',
+          placeholder:'search here',
+          noData:'No result',
+        depth: 6,
+      },
+
+      /* Pagination */
+      pagination: {
+          previousText:'Previous',
+          nextText:'Next',
+      },
+
+      /* Tabs */
+      tabs: {
+        persist    : true,      // default
+        sync       : true,      // default
+        theme      : 'classic', // default
+        tabComments: true,      // default
+        tabHeadings: true       // default
+      },
+ 
+      /* docsify-copy-code */
+      copyCode: {
+        buttonText : {
+          '/pt-br/'   : 'Clique aqui para copiar',
+          '/es/'      : 'Haga clic para copiar',
+          '/'         : 'Copy to clipboard',
+        },
+        errorText  : {
+          '/pt-br/'   : 'Erro',
+          '/es/'      : 'Error',
+          '/'         : 'Error'
+        },
+        successText: {
+          '/pt-br/'   : 'Copiado',
+          '/es/'      : 'Copiado',
+          '/'         : 'Copied'
+        }
+      }, 
+    
+    }
+  </script>
+
+  <!-- Docsify core -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+
+  <!-- Themes 
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@latest/dist/js/docsify-themeable.min.js"></script>
+
+  <!-- Plugins 
+  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+  <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
+  -->
+
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>  
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  
+  <script src=".\node_modules\docsify-tabs\dist\docsify-tabs.min.js"></script>  
+  <script src=".\node_modules\docsify-copy-code\dist\docsify-copy-code.min.js"></script>
+  <script src=".\node_modules\docsify-plugin-flexible-alerts\dist\docsify-plugin-flexible-alerts.min.js"></script>
+
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>
+
+  <!-- Language highlight syntax
+  -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-solidity.min.js"></script> 
+
+</body>
+</html>

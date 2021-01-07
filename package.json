@@ -1,0 +1,33 @@
+{
+  "name": "ethereum.solange.dev",
+  "private": true,
+  "description": "Tutorials to become a Ethereum blockchain developer - By Sol - Solange Gueiros",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blockchain",
+    "smart contracts",
+    "ethereum",
+    "truffle",
+    "truffle box",
+    "geth",
+    "solidity"
+  ],
+  "author": "Solange Gueiros <solangegueiros@gmail.com> (https://solange.dev)",
+  "dependencies": {
+    "docsify-copy-code": "^2.1.1",
+    "docsify-plugin-flexible-alerts": "^1.1.0",
+    "docsify-tabs": "^1.4.4"
+  },
+  "homepage": "https://github.com/solangegueiros/ethereum.solange.dev#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/solangegueiros/ethereum.solange.dev"
+  },
+  "bugs": {
+    "url": "https://github.com/solangegueiros/ethereum.solange.dev/issues"
+  }
+}
