@@ -29,7 +29,7 @@
         '/pt/': '/#/pt/',
         '/': '/',
       },
-      repo: '',
+      repo: 'https://github.com/solangegueiros/ethereum.solange.dev/',
 
       /* NAVIGATION
       -----------------------------------------------------------------*/
@@ -42,7 +42,12 @@
 
       /* homepage
       default: README.md */
-      homepage: 'index.md',      
+      notFoundPage: {
+        '/': '_404.md',
+        '/en': '_404.md',
+        '/es': 'es/_404.md',
+        '/pt': 'pt/_404.md',
+      },     
       
       loadNavbar: true,
       mergeNavbar: true,    // Navbar will be merged with the sidebar on smaller screens.
