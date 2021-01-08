@@ -1,8 +1,6 @@
 
 # Ethereum Tutorials
 
-![Ethereum](../images/ethereum.png)
-
 ?> By Sol :sun_with_face: - Solange Gueiros
 
 <!-- tabs:start -->
