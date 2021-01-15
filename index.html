@@ -111,13 +111,23 @@
           '/es/'      : 'Copiado',
           '/'         : 'Copied'
         }
-      }, 
+      },
+      
+      share: {
+        reddit: true,
+        linkedin: true,
+        facebook: true,
+        twitter: true,
+        whatsapp: true,
+        telegram: true,
+      },      
     
     }
   </script>
 
   <!-- Docsify core -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>
 
   <!-- Themes 
   -->
@@ -137,8 +147,8 @@
   <script src=".\packages\docsify-plugin-flexible-alerts.min.js"></script>
 
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/ga.min.js"></script>
-
+  <script src="//unpkg.com/docsify-share/build/index.min.js"></script>
+  
   <!-- Language highlight syntax
   -->
   <script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-solidity.min.js"></script> 
