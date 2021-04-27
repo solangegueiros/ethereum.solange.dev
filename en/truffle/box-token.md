@@ -79,17 +79,26 @@ Take a look at the smart contract `Token.sol`.
 You can check it out in folder `contracts`.
 
 ```solidity
-pragma solidity 0.5.2;
-import '@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol';
-contract Token is ERC20Mintable{
-       string public name = "My token";
-       string public symbol = "MTO";
-       uint8 public decimals = 2;
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.4;
+
+import '@openzeppelin/contracts/token/ERC20/ERC20.sol';
+
+contract Token is ERC20  {
+
+    constructor(uint256 initialSupply) ERC20("My token", "MTO") {
+        _mint(msg.sender, initialSupply);
+    }
+
+    function decimals() public pure override returns (uint8) {
+        return 2;
+    }
 }
+
 ```
 
 > [!TIP]
-> Token.sol has only 7 code lines!
+> Token.sol has only 15 code lines!
 
 ![Token.sol](../../images/truffle-sol-token-box/image-02.png)
 
