@@ -133,7 +133,7 @@ compile
 
 Take a look in the file `2_deploy_contracts.js` located in the `migrations` folder. 
 
-![Token.sol](../../images/truffle-sol-token-box/image-35.png)
+![2_deploy_contracts.js](../../images/truffle-sol-token-box/image-35.png)
 
 ### Migrate
 

@@ -136,7 +136,7 @@ compile
 
 Echa un vistazo al archivo `2_deploy_contracts.js` ubicado en la carpeta `migrations`.
 
-![Token.sol](../../images/truffle-sol-token-box/image-35.png)
+![2_deploy_contracts.js](../../images/truffle-sol-token-box/image-35.png)
 
 ### Migrate
 
