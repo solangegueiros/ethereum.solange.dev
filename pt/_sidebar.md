@@ -20,7 +20,8 @@
   * [Deploy](pt/truffle/truffle-deploy.md)
   * [Testes](pt/truffle/truffle-test.md)
   * [Truffle Boxes](pt/truffle/truffle-boxes.md)
-  * [Box: Token](pt/truffle/box-token.md)
+  * [Box: Token 2021](pt/truffle/box-token.md)
+  * [Box: Token 2020](pt/truffle/box-token-2020.md)
 
 * [Wallets - Carteiras](pt/wallets/readme.md)
   * [Metamask](pt/wallets/metamask.md)

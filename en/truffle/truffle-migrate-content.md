@@ -8,6 +8,12 @@ you only need to execute the command `migrate`.
 migrate
 ```
 
+If you did it before, or if you got a project which already have a deploy, you need to use the **reset** flag to force the deployment, like this:
+
+```shell
+migrate --reset
+```
+
 ### Outside of development console
 
 We will do it running the below command directly in the terminal, 

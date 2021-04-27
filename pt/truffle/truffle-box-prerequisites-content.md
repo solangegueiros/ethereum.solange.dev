@@ -12,7 +12,3 @@ Para utilizar `Truffle boxes`, você precisa ter instalado em seu computador:
 Se você não tiver algum deles instalado, vá para o tutorial
 [Truffle project prerequisites](/pt/truffle/truffle-project-prerequisites.md) 
 que contém todas as instruções para configurar esses requisitos.
-
-If you don't have any of them installed, go to the tutorial
-[Truffle project prerequisites](/pt/truffle/truffle-project-prerequisites.md) 
-which have all the instructions to setup these requirements.

@@ -8,6 +8,12 @@ Se você já está executando o Truffle console conectado a uma rede,
 migrate
 ```
 
+Se você já fez o deploy antes, ou se está usando um projeto que já tem uma publicação, você precisa usar a flag **reset** para forçar o deploy, desta forma:
+
+```shell
+migrate --reset
+```
+
 ### No terminal, fora do console Truffle
 
 Faremos isso executando os comandos abaixo diretamente no terminal,

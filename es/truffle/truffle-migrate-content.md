@@ -9,6 +9,12 @@ solo necesitas ejecutar el comando
 migrate
 ```
 
+Si lo hizo antes, o si tiene un proyecto que ya tiene una implementación, debe usar la flag **reset** para forzar el deploy, así:
+
+```shell
+migrate --reset
+```
+
 ### Fuera de la consola Truffle
 
 Lo haremos ejecutando lo siguiente comando directamente en la terminal,

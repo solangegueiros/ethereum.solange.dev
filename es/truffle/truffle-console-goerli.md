@@ -6,6 +6,8 @@ Görli testnet se configura usando el HDWalletProvider mediante el mnemónico.
 
 ![truffle-config HDWalletProvider mnemonic](../../images/truffle/image-08.png)
 
+Es posible que su configuración no sea exactamente esta, se han realizado algunas actualizaciones en la conexión, pero verá algunas configuraciones para la red Goerli.
+
 ### Conexión a la  Gorli testnet
 
 Ejecute la consola de desarrollo para esta red.

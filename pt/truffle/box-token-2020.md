@@ -2,7 +2,7 @@
 
 Tokens são muito utilizados para representar valores ou fazer trades.
 Neste tutorial, mostrarei passo-a-passo como utiliza a Truffle box 
-[sol-token-box](https://github.com/solangegueiros/sol-token-box), 
+[sol-token-box-2020](https://github.com/solangegueiros/sol-token-box-2020), 
 que vem com todo o necessário para criar um token padrão [ERC20](https://eips.ethereum.org/EIPS/eip-20). 
 Inclui configuração de rede para fazer deploy na [Görli testnet](https://goerli.net/) e um token ERC20 com emissão sob demanda.
 
@@ -25,7 +25,7 @@ Aqui está um resumo das etapas que faremos para publicar nosso token:
 13. [Utilizar o token no Metamask](#utilizando-o-token-no-metamask);
 
 Se foi redirecionado a partir da página
-[Truffle sol-token-box](https://github.com/solangegueiros/sol-token-box) 
+[Truffle sol-token-box-2020](https://github.com/solangegueiros/sol-token-box-2020) 
 e executou todas as instruções com sucesso, 
 você pode interagir com o token:
 
@@ -45,20 +45,16 @@ este tutorial completo será muito útil.
 
 O comando `truffle unbox` cria um projeto baseado em um template existente. 
 Neste tutorial, usaremos **Sol token box** Truffle box, 
-que vem com todo o necessário para criar um token padrão ERC20 com menos de 15 linhas de código,
+que vem com todo o necessário para criar um token padrão ERC20 com menos de 10 linhas de código,
 usando os smart contrats da Open Zeppelin, e publicar na rede Görli testnet.
 
 ### Cria uma nova pasta
 
 Crie uma nova pasta chamada `my-token`.
-
-```shell
-mkdir my-token
-```
-
 Vá para ela no terminal.
 
 ```shell
+mkdir my-token
 cd my-token
 ```
 
@@ -72,7 +68,7 @@ truffle unbox solangegueiros/sol-token-box
 
 Este é o resultado no SO Windows:
 
-![truffle unbox](../../images/truffle-sol-token-box/image-01.png)
+![truffle unbox](../../images/truffle-sol-token-box-2020/image-01.png)
 
 ### Token.sol
 
@@ -92,7 +88,7 @@ contract Token is ERC20Mintable{
 > [!TIP]
 > Token.sol tem apenas 7 linhas de código!
 
-![Token.sol](../../images/truffle-sol-token-box/image-02.png)
+![Token.sol](../../images/truffle-sol-token-box-2020/image-02.png)
 
 Este smart contract é um `mintable ERC20 token`. 
 Isto significa que, além da especificação padrão [ERC20](https://eips.ethereum.org/EIPS/eip-20), ele tem uma função para emitir novos tokens.
@@ -116,7 +112,7 @@ No console Truffle, execute este comando:
 compile
 ```
 
-![truffle compile](../../images/truffle-sol-token-box/image-03.png)
+![truffle compile](../../images/truffle-sol-token-box-2020/image-03.png)
 
 ## Publique o smart contract
 
@@ -134,7 +130,7 @@ migrate
 
 O retorno - `migrate output` deve ser parecido com:
 
-![truffle migrate](../../images/truffle-sol-token-box/image-04.png)
+![truffle migrate](../../images/truffle-sol-token-box-2020/image-04.png)
 
 ## Teste o smart contract
 
@@ -146,7 +142,7 @@ Você pode dar uma olhada  na pasta `test`.
 
 Veja um trecho de `TestToken.js`:
 
-![TestToken.js](../../images/truffle-sol-token-box/image-05.png)
+![TestToken.js](../../images/truffle-sol-token-box-2020/image-05.png)
 
 Executando os testes:
 
@@ -154,7 +150,7 @@ Executando os testes:
 test
 ```
 
-![test](../../images/truffle-sol-token-box/image-06.png)
+![test](../../images/truffle-sol-token-box-2020/image-06.png)
 
 
 ## Artifacts: Token.json
@@ -165,11 +161,11 @@ Por padrão, o arquivo `Token.json` está localizado na pasta `build\contracts\`
 
 Networks em Token.json
 
-![json networks](../../images/truffle-sol-token-box/image-07.png)
+![json networks](../../images/truffle-sol-token-box-2020/image-07.png)
 
 ABI em Token.json
 
-![json abi](../../images/truffle-sol-token-box/image-08.png)
+![json abi](../../images/truffle-sol-token-box-2020/image-08.png)
 
 
 ## Interagindo com o token no develop console
@@ -187,7 +183,6 @@ truffle develop
 ### Suas contas / endereços 
 
 [truffle-console-accounts](truffle-console-accounts.md ':include')
-
 
 ### Faça a conexão com seu token
 
@@ -224,7 +219,7 @@ Chame a função `totalSupply` para verificar a quantidade de tokens já emitido
 (await token.totalSupply()).toString()
 ```
 
-O valor retornado é 10000 = 100,00, que foi o valor definido na publicação do contrato inteligente.
+O valor retornado é 0, o que é esperado, dado que nós não fizemos uma emissão inicial ao publicar o token.
 
 ### Consulte o saldo de tokens
 
@@ -234,11 +229,65 @@ Chame a função `balanceOf` para saber o saldo de uma conta, por exemplo, da co
 (await token.balanceOf(accounts[0])).toString()
 ```
 
-Para account 0, o valor retornado é igual ao total supply porque no deploy do smart contract foram emitidos tokens para a conta que fez esta ação, que no caso é a account 0.
+O valor retornado é 0, o que também é esperado, como não foi realizada uma emissão inicial ao publicar o token, o saldo de todas as contas será 0.
 
 Veja os resultados para total supply e balanceOf:
 
 ![total supply and balanceOf 0](../../images/truffle-sol-token-box-2020/image-13.png)
+
+### Emitindo tokens
+
+Execute este comando:
+
+```javascript
+token.mint(accounts[0], 10000)
+```
+
+Está sendo enviada uma transação para a emissão de 100,00 tokens para a conta 0. 
+
+![token.mint account 0](../../images/truffle-sol-token-box-2020/image-14.png)
+
+Também é possível emitir para um endereço específico, por exemplo: `0xa52515946DAABe072f446Cc014a4eaA93fb9Fd79`:
+
+```javascript
+token.mint("0xa52515946DAABe072f446Cc014a4eaA93fb9Fd79", 10000)
+```
+
+![token.mint address](../../images/truffle-sol-token-box-2020/image-15.png)
+
+### Consultando o saldo de tokens (de novo)
+
+Verifique o saldo da conta 0 novamente:
+
+```javascript
+(await token.balanceOf(accounts[0])).toString()
+```
+
+O valor retornado é 10000, o que significa 100 com 2 casas decimais de precisão.
+Isto é exatamente o que esperávamos, dado que emitimos 100 tokens
+
+Você também pode consultar o saldo de um endereço específico, por exemplo, `0xa52515946DAABe072f446Cc014a4eaA93fb9Fd79`:
+
+```javascript
+(await token.balanceOf("0xa52515946DAABe072f446Cc014a4eaA93fb9Fd79")).toString()
+```
+
+Veja os saldos:
+
+![balanceOf account 0 and address with 10000](../../images/truffle-sol-token-box-2020/image-18.png)
+
+### Consultando o total supply (de novo)
+
+Verifique o total de tokens novamente:
+
+```javascript
+(await token.totalSupply()).toString()
+```
+
+![totalSupply 20000](../../images/truffle-sol-token-box-2020/image-19.png)
+
+O valor retornado é 30000, que são 300 tokens com 2 casas decimais de precisão.
+Depois de emitir 100 tokens para cada uma das 3 contas, está correto!
 
 ### Transfira tokens
 
@@ -283,7 +332,6 @@ Veja os resultados:
 
 Maravilha!
 Os saldos das duas contas e a emissão total estão corretos.
-
 
 ### Saída do Truffle console
 
@@ -355,7 +403,7 @@ truffle migrate --network goerli
 > O comando `migrate` pode demorar em um Blockchain de verdade, 
 > porque Truffle cria algumas transações que precisam ser mineradas e incluídas no Blockchain.
 
-![token migrate Görli](../../images/truffle-sol-token-box/image-27.png)
+![token migrate Görli](../../images/truffle-sol-token-box-2020/image-27.png)
 
 Parabéns!
 :tada:
@@ -371,7 +419,7 @@ Por exemplo, na migração acima, o endereço do token é [0x41Ae8F2E2133d95196A
 
 Você pode visualizá-lo no [Etherscan - Goerli explorer](https://goerli.etherscan.io/address/0x41Ae8F2E2133d95196Af7E89a75655346567d107).
 
-![contract address on Etherscan explorer](../../images/truffle-sol-token-box/image-28.png)
+![contract address on Etherscan explorer](../../images/truffle-sol-token-box-2020/image-28.png)
 
 ## Interagir com o token na Goerli network
 
@@ -388,6 +436,7 @@ Faça as mesmas ações que fizemos antes:
 - Faça a conexão com seu token
 - Consulte o total de tokens
 - Consulte o saldo de tokens
+- Emita tokens
 - Transfira tokens
 
 ## Utilizando o token no Metamask
@@ -400,7 +449,7 @@ Vá para o tutorial
 
 ## Considerações finais
 
-Neste tutorial você aprendeu como utilizar a Truffle box [sol-token-box](https://github.com/solangegueiros/sol-token-box)
+Neste tutorial você aprendeu como utilizar a Truffle box [sol-token-box-2020](https://github.com/solangegueiros/sol-token-box-2020)
 para criar seu próprio token ERC20 token usando a biblioteca de smart contracts da Open Zeppelin no Truffle framework, conectado a rede Goerli testnet.
 
 Espero que esse tutorial tenha sido útil e agradeço caso tenha algum feedback para mim. 
