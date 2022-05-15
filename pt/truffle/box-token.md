@@ -81,26 +81,23 @@ Ele está na pasta `contracts`.
 
 ```solidity
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.4;
+pragma solidity 0.5.2;
 
-import '@openzeppelin/contracts/token/ERC20/ERC20.sol';
+//import 'https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/token/ERC20/ERC20Mintable.sol';
+import '@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol';
 
-contract Token is ERC20  {
-
-    constructor(uint256 initialSupply) ERC20("My token", "MTO") {
-        _mint(msg.sender, initialSupply);
-    }
-
-    function decimals() public pure override returns (uint8) {
-        return 2;
-    }
-}
+contract Token is ERC20Mintable{
+	string public name = "My token";
+	string public symbol = "MTO";
+	uint8 public decimals = 2; 
+} 
 
 ```
 
 > [!TIP]
-> Token.sol tem apenas 15 linhas de código!
+> Token.sol tem apenas 11 linhas de código!
 
+Esta figura é uma versão mais antiga do token, está aqui apenas para ilustrar a criação:
 ![Token.sol](../../images/truffle-sol-token-box/image-02.png)
 
 Este smart contract é um `mintable ERC20 token`. 
@@ -155,7 +152,7 @@ Este Truffle box vem com o arquivo `TestToken.js` para testar o smart contract.
 
 Você pode dar uma olhada  na pasta `test`.
 
-Veja um trecho de `TestToken.js`:
+Veja um trecho de `TestToken.js` (esta é uma versão antiga):
 
 ![TestToken.js](../../images/truffle-sol-token-box/image-05.png)
 
@@ -312,6 +309,7 @@ executado em diversos nós, em computadores espalhados pelo mundo!
 We need to do some tasks:
 
 - Configurar uma conta / criar uma carteira
+- Criar o arquivo `.env`
 - Atualizar .secret
 - Obter ETHs
 - Conectar a uma rede
@@ -326,9 +324,13 @@ We need to do some tasks:
 
 [metamask-goerli](../wallets/metamask-goerli.md ':include')
 
-### Atualize o arquivo .secret
+### Create .env
 
-[secret-update](../wallets/secret-update.md ':include')
+Faça uma cópia de `.env.example` e nomeie `.env`, localizado na pasta project.
+
+Atualize seu **MNEMONIC** em **.env**
+
+Salve o arquivo `.env`.
 
 ### Obtenha ETHs na Görli testnet
 

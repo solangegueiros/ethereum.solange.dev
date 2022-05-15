@@ -80,26 +80,23 @@ You can check it out in folder `contracts`.
 
 ```solidity
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.4;
+pragma solidity 0.5.2;
 
-import '@openzeppelin/contracts/token/ERC20/ERC20.sol';
+//import 'https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/token/ERC20/ERC20Mintable.sol';
+import '@openzeppelin/contracts/token/ERC20/ERC20Mintable.sol';
 
-contract Token is ERC20  {
-
-    constructor(uint256 initialSupply) ERC20("My token", "MTO") {
-        _mint(msg.sender, initialSupply);
-    }
-
-    function decimals() public pure override returns (uint8) {
-        return 2;
-    }
-}
+contract Token is ERC20Mintable{
+	string public name = "My token";
+	string public symbol = "MTO";
+	uint8 public decimals = 2; 
+} 
 
 ```
 
 > [!TIP]
-> Token.sol has only 15 code lines!
+> Token.sol has only 11 code lines!
 
+This figure is an older version of the token, it's just here to illustrate the creation:
 ![Token.sol](../../images/truffle-sol-token-box/image-02.png)
 
 This smart contract is a mintable [ERC20](https://eips.ethereum.org/EIPS/eip-20) token. 
@@ -154,7 +151,8 @@ And the `migrate output` should be similar to:
 Our box also comes with the file `TestToken.js` for testing the smart contract. 
 You can check it out in the `test` folder.
 
-Take a look at this `TestToken.js`'s excerpt:
+
+Take a look at this `TestToken.js`'s excerpt (this is older version):
 
 ![TestToken.js](../../images/truffle-sol-token-box/image-05.png)
 
@@ -310,7 +308,7 @@ across multiple computers!
 We need to do some tasks:
 
 - Setup an account / create a wallet
-- Update .secret
+- Create the file `.env`
 - Get ETHs
 - Connect to a network
 - Check the connection on the network
@@ -324,9 +322,13 @@ We need to do some tasks:
 
 [metamask-goerli](../wallets/metamask-goerli.md ':include')
 
-### Update .secret file
+### Create .env
 
-[secret-update](../wallets/secret-update.md ':include')
+Make a copy of `.env.example` and named `.env`, located in the folder project.
+
+Update your **MNEMONIC** in **.env**
+
+Save `.env` file.
 
 ### Get ETHs on Görli testnet
 
